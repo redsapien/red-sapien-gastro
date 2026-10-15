@@ -1,0 +1,3 @@
+Vista previa de la plantilla de Gastronomía.
+Extraiga el ZIP completo y abra index.html en un navegador.
+Conserve juntas las carpetas Video y assets para que funcionen el video y los logos.
