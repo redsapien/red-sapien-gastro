@@ -318,12 +318,12 @@
             transition: background .2s ease, border-color .2s ease;
         }
         .logo-arrow:hover { background: rgba(255,60,0,.2); border-color: rgba(255,60,0,.7); }
-        .logo-counter, .registration-countdown {
-            color: #b8bec8;
+        .registration-countdown {
+            color: #ff8a68;
             font: 600 11px/1.4 'Inter', sans-serif;
             letter-spacing: .06em;
+            margin-top: 8px;
         }
-        .registration-countdown { color: #ff8a68; margin-top: 8px; }
         .form-label { display: block; margin-bottom: -6px; color: #d1d5db; font-size: 12px; font-weight: 600; }
         button[data-register-cta]:disabled { opacity: .55; cursor: not-allowed; }
         .skip-link { position: fixed; top: 12px; left: 12px; z-index: 100000; padding: 10px 14px; border-radius: 10px; background: #fff; color: #050505; font-size: 12px; font-weight: 700; transform: translateY(-160%); }
@@ -374,7 +374,7 @@
             font-size: 12px;
             font-weight: 800;
         }
-        .logo-autoplay-toggle:hover { background: rgba(255,60,0,.18); border-color: rgba(255,60,0,.6); }
+        @media (hover: hover) and (pointer: fine) { .logo-autoplay-toggle:hover { background: rgba(255,60,0,.18); border-color: rgba(255,60,0,.6); } }
         .services-link {
             display: inline-flex;
             align-items: center;
@@ -416,18 +416,27 @@
             .logo-item { flex-basis: min(86vw, 300px); width: min(86vw, 300px); height: min(38vw, 120px); min-height: 92px; }
         }
 
+        .benefit-section { padding-block: clamp(3rem, 5vw, 4rem); }
+        .case-section, .cta-section { padding-block: clamp(2.5rem, 4vw, 3rem); }
         .feature-card {
+            display: flex; align-items: center; min-height: 86px;
             background: rgba(15, 15, 15, 0.82);
             border: 1px solid rgba(255, 255, 255, 0.075);
-            border-radius: 12px;
-            padding: 12px;
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            padding: 16px;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
         }
-        .feature-card > div:first-child { width: 32px; height: 32px; margin-bottom: 8px; font-size: 16px; }
-        .feature-card:hover {
-            border-color: rgba(255, 60, 0, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 60, 0, 0.1);
+        .feature-description strong { color: #fff; font-weight: 800; }
+        @media (hover: hover) and (pointer: fine) {
+            .feature-card:hover {
+                border-color: rgba(255, 60, 0, 0.4);
+                background: rgba(20, 17, 16, 0.92);
+            }
+        }
+        @media (max-width: 639px) {
+            .benefit-section { padding-block: 2.75rem; }
+            .case-section, .cta-section { padding-block: 2.25rem; }
+            .feature-card { min-height: 76px; padding: 14px; }
         }
 
         @media (min-width: 1024px) {
@@ -534,45 +543,24 @@
     </section>
 
     <!-- ================= SECCIÓN DE CARACTERÍSTICAS (TÍTULO A LA MITAD) ================= -->
-    <section class="relative z-10 py-8 px-6 max-w-5xl mx-auto text-center">
-        <div class="mb-6 max-w-xl mx-auto">
-            <span class="text-xs font-mono text-rs-red uppercase tracking-widest font-bold block mb-2">WHATSAPP · CORREO · PEDIDOS</span>
+    <section class="relative z-10 py-8 px-6 max-w-5xl mx-auto text-center benefit-section">
+        <div class="mb-8 max-w-xl mx-auto">
             <h2 class="font-display text-2xl sm:text-3xl font-bold">Apoyo digital 24/7 para su restaurante</h2>
         </div>
 
-        <div class="feature-grid grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="feature-card text-left">
-                <div class="w-10 h-10 rounded-xl bg-rs-red/10 border border-rs-red/30 flex items-center justify-center text-rs-red text-xl mb-3 font-bold">🍔</div>
-                <h3 class="font-display font-bold text-sm mb-1 text-white">Pedidos</h3>
-                <p class="feature-description text-gray-400 leading-relaxed">Organice pedidos de WhatsApp.</p>
-            </div>
-
-            <div class="feature-card text-left">
-                <div class="w-10 h-10 rounded-xl bg-rs-red/10 border border-rs-red/30 flex items-center justify-center text-rs-red text-xl mb-3 font-bold">📋</div>
-                <h3 class="font-display font-bold text-sm mb-1 text-white">Carta</h3>
-                <p class="feature-description text-gray-400 leading-relaxed">Comparta menú y precios.</p>
-            </div>
-
-            <div class="feature-card text-left">
-                <div class="w-10 h-10 rounded-xl bg-rs-red/10 border border-rs-red/30 flex items-center justify-center text-rs-red text-xl mb-3 font-bold">💬</div>
-                <h3 class="font-display font-bold text-sm mb-1 text-white">Atención</h3>
-                <p class="feature-description text-gray-400 leading-relaxed">Responda dudas fuera de horario.</p>
-            </div>
-
-            <div class="feature-card text-left">
-                <div class="w-10 h-10 rounded-xl bg-rs-red/10 border border-rs-red/30 flex items-center justify-center text-rs-red text-xl mb-3 font-bold">📊</div>
-                <h3 class="font-display font-bold text-sm mb-1 text-white">Seguimiento</h3>
-                <p class="feature-description text-gray-400 leading-relaxed">Ordene correos y pendientes.</p>
-            </div>
+        <div class="feature-grid grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Organice pedidos</strong> por WhatsApp.</p></div>
+            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Comparta</strong> menú y precios.</p></div>
+            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Responda dudas</strong> fuera del horario.</p></div>
+            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Ordene</strong> correos y pendientes.</p></div>
         </div>
     </section>
 
-    <section id="restaurant-cases" class="relative z-10 py-6 px-4 bg-[#080808] border-t border-b border-white/5" aria-label="Casos de restaurantes">
+    <section id="restaurant-cases" class="relative z-10 py-6 px-4 bg-[#080808] border-t border-b border-white/5 case-section" aria-label="Casos de restaurantes">
         <div class="max-w-6xl mx-auto">
-            <div class="flex items-end justify-end gap-3 mb-3">
+            <div class="flex items-center justify-end mb-2">
                 <div class="logo-controls">
                     <button id="logo-autoplay-toggle" type="button" class="logo-autoplay-toggle" aria-pressed="false" aria-label="Pausar carrusel" title="Pausar carrusel" onclick="toggleLogoAutoplay()">Ⅱ</button>
-                    <span id="logo-counter" class="logo-counter" aria-live="off" aria-label="Restaurante 1 de 6">01 / 06</span>
                 </div>
             </div>
             <div id="logo-slider" class="logo-carousel">
@@ -591,9 +579,8 @@
     </section>
 
     <!-- ================= SECCIÓN 3: CIERRE RÁPIDO (TÍTULO A LA DERECHA/CENTRO) ================= -->
-    <section class="relative z-10 py-6 px-4 max-w-3xl mx-auto text-center lg:text-right">
+    <section class="relative z-10 py-6 px-4 max-w-3xl mx-auto text-center lg:text-right cta-section">
         <div class="bg-gradient-to-b from-[#121212] to-[#0a0a0a] border border-white/10 rounded-3xl p-6 shadow-2xl relative inline-block w-full">
-            <span class="text-xs font-mono text-rs-red uppercase tracking-widest font-bold mb-2 block">⚡ Clase gratis · en vivo · 2 h</span>
             <h2 class="font-display text-xl sm:text-2xl font-bold mb-3">Reserve su cupo</h2>
             
             <button type="button" data-register-cta aria-haspopup="dialog" aria-controls="action-modal" onclick="openModal()" class="px-8 py-3.5 bg-white hover:bg-neutral-200 text-black font-extrabold text-xs uppercase tracking-widest rounded-xl transition-all shadow-xl hover:scale-105 inline-block">
@@ -663,15 +650,11 @@
         const modal = document.getElementById('action-modal');
         const registrationCountdown = document.getElementById('registration-countdown');
         const registrationClosesAt = Date.parse('2026-10-19T00:00:00-05:00');
-        const logoSlider = document.getElementById('logo-slider');
         const logoTrack = document.getElementById('logo-track');
-        const logoCounter = document.getElementById('logo-counter');
         const logoAutoplayToggle = document.getElementById('logo-autoplay-toggle');
         const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
-        let logoAutoplayEnabled = !prefersReducedMotion.matches;
-        let logoPauseUntil = 0;
+        let logoAutoplayEnabled = true;
         let lastModalOpener = null;
-        let logoUpdateFrame = 0;
         let videoCtaShown = false;
         let videoCtaFrameId = null;
 
@@ -711,19 +694,10 @@
             });
             return bestIndex;
         }
-        function updateLogoCounter() {
-            if (!logoTrack || !logoCounter) return;
-            const items = [...logoTrack.querySelectorAll('.logo-item')];
-            if (!items.length) return;
-            const index = getCenteredLogoIndex(items);
-            logoCounter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(items.length).padStart(2, '0')}`;
-            logoCounter.setAttribute('aria-label', `Restaurante ${index + 1} de ${items.length}`);
-        }
-        function scrollLogoSlider(direction, manual) {
+        function scrollLogoSlider(direction) {
             if (!logoTrack) return;
             const items = [...logoTrack.querySelectorAll('.logo-item')];
             if (items.length < 2) return;
-            if (manual) logoPauseUntil = Date.now() + 5000;
             const maxScroll = Math.max(0, logoTrack.scrollWidth - logoTrack.clientWidth);
             if (maxScroll < 2) return;
             const currentIndex = getCenteredLogoIndex(items);
@@ -732,9 +706,10 @@
             const itemRect = items[nextIndex].getBoundingClientRect();
             const delta = (itemRect.left + itemRect.width / 2) - (trackRect.left + trackRect.width / 2);
             const target = Math.max(0, Math.min(maxScroll, logoTrack.scrollLeft + delta));
-            logoTrack.scrollTo({ left: target, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' });
+            try { logoTrack.scrollTo({ left: target, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' }); }
+            catch (_) { logoTrack.scrollLeft = target; }
         }
-        function moveLogoSlider(direction) { scrollLogoSlider(direction, true); }
+        function moveLogoSlider(direction) { scrollLogoSlider(direction); }
         function syncLogoAutoplayButton() {
             if (!logoAutoplayToggle) return;
             const paused = !logoAutoplayEnabled;
@@ -748,20 +723,8 @@
             syncLogoAutoplayButton();
         }
         function advanceLogoSlider() {
-            if (!logoAutoplayEnabled || document.hidden || Date.now() < logoPauseUntil) return;
-            scrollLogoSlider(1, false);
-        }
-        if (logoTrack) {
-            logoTrack.addEventListener('scroll', () => {
-                window.cancelAnimationFrame(logoUpdateFrame);
-                logoUpdateFrame = window.requestAnimationFrame(updateLogoCounter);
-            }, { passive: true });
-            window.addEventListener('resize', updateLogoCounter, { passive: true });
-            updateLogoCounter();
-        }
-        if (logoSlider) {
-            logoSlider.addEventListener('touchstart', () => { logoPauseUntil = Date.now() + 5000; }, { passive: true });
-            logoSlider.addEventListener('pointerdown', (event) => { if (event.pointerType !== 'mouse') logoPauseUntil = Date.now() + 5000; }, { passive: true });
+            if (!logoAutoplayEnabled || document.hidden) return;
+            scrollLogoSlider(1);
         }
         syncLogoAutoplayButton();
         window.setInterval(advanceLogoSlider, 2000);
