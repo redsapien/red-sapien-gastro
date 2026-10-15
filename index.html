@@ -13,15 +13,17 @@
     <meta property="og:url" content="https://gastronomia.redsapien.com/">
     <meta property="og:title" content="Clase gratis de IA para restaurantes | Red Sapien">
     <meta property="og:description" content="Clase gratuita de 2 horas en vivo. Agente de IA gratis para siempre. Martes 20 de octubre, 16:00, hora Colombia.">
-    <meta property="og:image" content="https://gastronomia.redsapien.com/Video/Gastronomia-poster.jpg">
-    <meta property="og:image:alt" content="Video de Red Sapien para restaurantes">
+    <meta property="og:image" content="https://gastronomia.redsapien.com/assets/Image/OpenGraph-Gastronomia.jpg">
+    <meta property="og:image:secure_url" content="https://gastronomia.redsapien.com/assets/Image/OpenGraph-Gastronomia.jpg">
+    <meta property="og:image:alt" content="Cristian López en una toma de video, presentando la clase de IA para restaurantes">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="480">
-    <meta property="og:image:height" content="864">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Clase gratis de IA para restaurantes | Red Sapien">
     <meta name="twitter:description" content="2 horas en vivo · Agente de IA gratis para siempre">
-    <meta name="twitter:image" content="https://gastronomia.redsapien.com/Video/Gastronomia-poster.jpg">
+    <meta name="twitter:image" content="https://gastronomia.redsapien.com/assets/Image/OpenGraph-Gastronomia.jpg">
+    <meta name="twitter:image:alt" content="Cristian López en una toma de video, presentando la clase de IA para restaurantes">
     <title>Clase gratis de IA para restaurantes | Red Sapien</title>
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23050505' stroke='%23FF3C00' stroke-width='4'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='40' fill='%23FF3C00'%3ERS%3C/text%3E%3C/svg%3E">
@@ -67,6 +69,23 @@
             background-size: auto, 72px 72px, 72px 72px;
             pointer-events: none;
             z-index: 0;
+        }
+        .tech-mesh-layer::after {
+            content: '';
+            position: absolute; top: 180px; right: max(16px, calc((100vw - 1120px) / 2));
+            width: clamp(100px, 15vw, 190px); aspect-ratio: 1;
+            background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%20200%27%20fill%3D%27none%27%20stroke%3D%27%23FF6C45%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%3E%3Ccircle%20cx%3D%27103%27%20cy%3D%27101%27%20r%3D%2757%27%2F%3E%3Ccircle%20cx%3D%27103%27%20cy%3D%27101%27%20r%3D%2743%27%2F%3E%3Cpath%20d%3D%27M25%2038v48m-8-48v15m16-15v15m-8%2033v71m151-118v118m-16-118v31c0%2015%2032%2015%2032%200V38%27%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+            opacity: .055; pointer-events: none;
+        }
+        @media (max-width: 767px) {
+            .tech-mesh-layer::after { top: 520px; right: 8px; width: 96px; opacity: .04; }
+        }
+        .class-free-badge {
+            max-width: 100%; padding: .65rem 1rem; line-height: 1.2;
+            font-size: clamp(.8rem, 1.25vw, .95rem); letter-spacing: .09em;
+            color: #ff9975; border-color: rgba(255,98,60,.62);
+            background: linear-gradient(120deg, rgba(255,60,0,.2), rgba(255,60,0,.07));
+            box-shadow: 0 8px 26px rgba(255,60,0,.12); text-wrap: balance;
         }
 
         .mobile-frame-compact {
@@ -310,8 +329,16 @@
             animation: cinematic-aura 12s ease-in-out infinite alternate;
         }
         .hero-30 { display: inline-block; color: #ff5b3d; font-size: 1.25em; font-weight: 900; line-height: 1; white-space: nowrap; text-shadow: 0 0 14px rgba(255,60,0,.2); }
-        .agent-offer { display: inline-flex; align-items: center; justify-content: center; gap: 7px; margin-top: 10px; color: #f0f0f0; font-size: 11px; font-weight: 700; letter-spacing: .015em; }
-        .agent-offer span { color: #ff8a68; text-shadow: 0 0 12px rgba(255,60,0,.5); }
+        .agent-offer {
+            display: inline-flex; align-items: center; justify-content: flex-start; gap: 10px;
+            max-width: 100%; margin-top: 12px; padding: 10px 14px;
+            border: 1px solid rgba(255,98,60,.52); border-radius: 14px;
+            background: linear-gradient(120deg, rgba(255,60,0,.17), rgba(255,255,255,.035));
+            box-shadow: 0 12px 30px rgba(255,60,0,.12), inset 0 1px rgba(255,255,255,.04);
+            color: #fff; font-size: clamp(14px, 1.7vw, 18px); font-weight: 800;
+            line-height: 1.3; letter-spacing: .005em; text-align: left;
+        }
+        .agent-offer span { display: grid; flex: 0 0 24px; width: 24px; height: 24px; place-items: center; border-radius: 50%; background: rgba(255,60,0,.9); color: #fff; font-size: 13px; text-shadow: 0 0 12px rgba(255,60,0,.5); }
         .cinema-reveal { animation: cinema-rise .68s cubic-bezier(.16,1,.3,1) both; }
         .cinema-reveal--delay { animation-delay: .14s; }
         @keyframes cinema-rise {
@@ -444,7 +471,7 @@
         <!-- COLUMNA IZQUIERDA (PC): TÍTULO A LA IZQUIERDA -->
         <div class="flex-1 max-w-xl flex flex-col items-center lg:items-start order-2 lg:order-1">
             
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rs-red/15 border border-rs-red/40 text-rs-red text-xs sm:text-sm font-mono uppercase tracking-widest font-extrabold mb-5 shadow-md">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rs-red/15 border border-rs-red/40 text-rs-red text-xs sm:text-sm font-mono uppercase tracking-widest font-extrabold mb-5 shadow-md class-free-badge">
                 CLASE GRATIS · EN VIVO · 2 HORAS
             </div>
 
@@ -574,9 +601,9 @@
                 <p id="modal-copy" class="text-gray-300 text-xs leading-relaxed mb-5">Complete sus datos.</p>
                 <form id="lead-form" onsubmit="submitForm(event)" class="space-y-3 relative z-10">
                     <label class="form-label" for="lead-name">Nombre</label>
-                    <input type="text" id="lead-name" name="name" autocomplete="name" required maxlength="80" placeholder="Antonella López" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
-                    <label class="form-label" for="lead-brand">Restaurante</label>
-                    <input type="text" id="lead-brand" name="business" autocomplete="organization" required maxlength="100" placeholder="Nombre del restaurante" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
+                    <input type="text" id="lead-name" name="name" autocomplete="name" required maxlength="80" placeholder="Ej: Antonella López" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
+                    <label class="form-label" for="lead-brand">Restaurante o negocio</label>
+                    <input type="text" id="lead-brand" name="business" autocomplete="organization" required maxlength="100" placeholder="Ej: Nombre del restaurante o negocio" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
                     <p id="register-note" class="text-[10px] leading-relaxed text-gray-400">Envíe el mensaje para confirmar.</p>
                     <button type="submit" class="w-full py-3.5 bg-white text-black font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-neutral-200 shadow-lg">Abrir WhatsApp</button>
                 </form>
@@ -630,6 +657,8 @@
         const logoAutoplayToggle = document.getElementById('logo-autoplay-toggle');
         const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
         let logoAutoplayEnabled = !prefersReducedMotion.matches;
+        let logoSliderVisible = false;
+        let logoAutoplayTimer = null;
         let logoPauseUntil = 0;
         let lastModalOpener = null;
         let logoUpdateFrame = 0;
@@ -694,13 +723,24 @@
         function toggleLogoAutoplay() {
             logoAutoplayEnabled = !logoAutoplayEnabled;
             syncLogoAutoplayButton();
+            if (logoAutoplayEnabled) startLogoAutoplay();
+            else stopLogoAutoplay();
         }
         function advanceLogoSlider() {
-            if (!logoAutoplayEnabled || document.hidden || Date.now() < logoPauseUntil) return;
+            if (!logoAutoplayEnabled || !logoSliderVisible || document.hidden || Date.now() < logoPauseUntil) return;
             if (logoSlider && logoSlider.matches(':hover')) return;
             const active = document.activeElement;
             if (logoSlider && logoSlider.contains(active) && active !== logoAutoplayToggle) return;
             scrollLogoSlider(1, false);
+        }
+        function stopLogoAutoplay() {
+            if (logoAutoplayTimer === null) return;
+            window.clearInterval(logoAutoplayTimer);
+            logoAutoplayTimer = null;
+        }
+        function startLogoAutoplay() {
+            if (!logoAutoplayEnabled || !logoSliderVisible || logoAutoplayTimer !== null) return;
+            logoAutoplayTimer = window.setInterval(advanceLogoSlider, 2000);
         }
         if (logoTrack) {
             logoTrack.addEventListener('scroll', () => {
@@ -713,9 +753,26 @@
         if (logoSlider) {
             logoSlider.addEventListener('touchstart', () => { logoPauseUntil = Date.now() + 5000; }, { passive: true });
             logoSlider.addEventListener('pointerdown', (event) => { if (event.pointerType !== 'mouse') logoPauseUntil = Date.now() + 5000; }, { passive: true });
+            if ('IntersectionObserver' in window) {
+                const logoObserver = new IntersectionObserver((entries) => {
+                    const entry = entries.find((item) => item.target === logoSlider);
+                    logoSliderVisible = Boolean(entry && entry.isIntersecting && entry.intersectionRatio >= 0.3);
+                    if (logoSliderVisible) startLogoAutoplay();
+                    else stopLogoAutoplay();
+                }, { threshold: [0, 0.3] });
+                logoObserver.observe(logoSlider);
+            } else {
+                logoSliderVisible = true;
+                startLogoAutoplay();
+            }
         }
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stopLogoAutoplay();
+            else startLogoAutoplay();
+        });
+        window.addEventListener('pagehide', stopLogoAutoplay);
+        window.addEventListener('pageshow', startLogoAutoplay);
         syncLogoAutoplayButton();
-        window.setInterval(advanceLogoSlider, 2000);
 
         function hideVideoOverlay() {
             if (!overlay) return;
