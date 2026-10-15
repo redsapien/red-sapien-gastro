@@ -416,27 +416,78 @@
             .logo-item { flex-basis: min(86vw, 300px); width: min(86vw, 300px); height: min(38vw, 120px); min-height: 92px; }
         }
 
-        .benefit-section { padding-block: clamp(3rem, 5vw, 4rem); }
+        .benefit-section {
+            position: relative; isolation: isolate; overflow: hidden;
+            padding-block: clamp(3rem, 5vw, 4rem);
+        }
+        .benefit-section::before, .benefit-section::after {
+            content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        }
+        .benefit-section::before {
+            background:
+                radial-gradient(ellipse at 13% 42%, rgba(255,60,0,.12), transparent 34%),
+                radial-gradient(ellipse at 88% 58%, rgba(83,130,255,.075), transparent 36%),
+                repeating-linear-gradient(135deg, rgba(255,255,255,.018) 0 1px, transparent 1px 34px);
+            opacity: .72;
+        }
+        .benefit-section::after {
+            background: linear-gradient(112deg, transparent 35%, rgba(255,92,55,.09) 50%, transparent 65%);
+            transform: translateX(-100%); animation: benefit-ai-sweep 16s ease-in-out infinite;
+            opacity: .7;
+        }
+        .benefit-section > * { position: relative; z-index: 1; }
+        @keyframes benefit-ai-sweep {
+            0%, 18% { transform: translateX(-100%); opacity: 0; }
+            35% { opacity: .55; }
+            78%, 100% { transform: translateX(100%); opacity: 0; }
+        }
         .case-section, .cta-section { padding-block: clamp(2.5rem, 4vw, 3rem); }
+        .feature-grid { align-items: stretch; }
         .feature-card {
-            display: flex; align-items: center; min-height: 86px;
-            background: rgba(15, 15, 15, 0.82);
-            border: 1px solid rgba(255, 255, 255, 0.075);
-            border-radius: 16px;
-            padding: 16px;
-            transition: border-color 0.25s ease, background-color 0.25s ease;
+            position: relative; display: flex; align-items: flex-start; gap: 14px;
+            min-height: 126px; padding: 18px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,.09); border-radius: 18px;
+            background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(15,15,15,.91) 58%, rgba(255,60,0,.045));
+            box-shadow: inset 0 1px rgba(255,255,255,.045), 0 10px 28px rgba(0,0,0,.16);
+            transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
         }
-        .feature-description strong { color: #fff; font-weight: 800; }
+        .feature-card::before {
+            content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+            background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.055) 50%, transparent 72%);
+            transform: translateX(-100%); transition: transform .65s ease, opacity .25s ease;
+        }
+        .feature-card-copy { min-width: 0; position: relative; z-index: 1; }
+        .feature-icon {
+            position: relative; z-index: 1; flex: 0 0 44px; width: 44px; height: 44px;
+            display: grid; place-items: center; color: #ff8a68;
+            border: 1px solid rgba(255,110,73,.32); border-radius: 14px;
+            background: linear-gradient(145deg, rgba(255,60,0,.18), rgba(255,255,255,.035));
+            box-shadow: inset 0 1px rgba(255,255,255,.075), 0 8px 22px rgba(255,60,0,.09);
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+        .feature-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+        .feature-title { margin: 1px 0 7px; color: #fff; font: 800 15px/1.25 'Inter', sans-serif; letter-spacing: -.01em; }
+        .feature-description { margin: 0; color: #c4c8d0; font-size: clamp(14px, 1.05vw, 15px); line-height: 1.48; }
+        @media (min-width: 1024px) {
+            .feature-card { flex-direction: column; gap: 13px; min-height: 176px; padding: 20px; }
+        }
         @media (hover: hover) and (pointer: fine) {
-            .feature-card:hover {
-                border-color: rgba(255, 60, 0, 0.4);
-                background: rgba(20, 17, 16, 0.92);
-            }
+            .feature-card:hover { transform: translateY(-3px); border-color: rgba(255,103,66,.48); box-shadow: inset 0 1px rgba(255,255,255,.08), 0 18px 38px rgba(0,0,0,.34), 0 0 24px rgba(255,60,0,.09); }
+            .feature-card:hover::before { opacity: 1; transform: translateX(100%); }
+            .feature-card:hover .feature-icon { transform: translateY(-2px) scale(1.04); box-shadow: inset 0 1px rgba(255,255,255,.12), 0 10px 28px rgba(255,60,0,.18); }
         }
+        @media (pointer: coarse) { .feature-card:active .feature-icon { transform: scale(.96); } }
         @media (max-width: 639px) {
             .benefit-section { padding-block: 2.75rem; }
             .case-section, .cta-section { padding-block: 2.25rem; }
-            .feature-card { min-height: 76px; padding: 14px; }
+            .feature-grid { gap: 12px; }
+            .feature-card { min-height: 0; padding: 14px; gap: 12px; }
+            .feature-icon { flex-basis: 40px; width: 40px; height: 40px; border-radius: 13px; }
+            .feature-icon svg { width: 20px; height: 20px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .benefit-section::after, .feature-card, .feature-card::before, .feature-icon { animation: none !important; transition: none !important; }
+            .benefit-section::after { transform: none; opacity: .12; }
         }
 
         @media (min-width: 1024px) {
@@ -549,10 +600,22 @@
         </div>
 
         <div class="feature-grid grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Organice pedidos</strong> por WhatsApp.</p></div>
-            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Comparta</strong> menú y precios.</p></div>
-            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Responda dudas</strong> fuera del horario.</p></div>
-            <div class="feature-card text-left"><p class="feature-description text-gray-300 leading-relaxed"><strong>Ordene</strong> correos y pendientes.</p></div>
+            <article class="feature-card">
+                <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><circle cx="12" cy="12" r="8.25"/><path d="M12 7v5l3 2"/><path d="M18.5 3.5v3m-1.5-1.5h3"/></svg></span>
+                <div class="feature-card-copy"><h3 class="feature-title">Organiza</h3><p class="feature-description">Agiliza la atención en horas pico.</p></div>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M5.5 4.5A2.5 2.5 0 0 1 8 2h11v18H8a2.5 2.5 0 0 1-2.5-2.5z"/><path d="M5.5 4.5V18A2.5 2.5 0 0 0 8 20M9 7h7m-7 4h7m-7 4h5"/></svg></span>
+                <div class="feature-card-copy"><h3 class="feature-title">Comparte el menú</h3><p class="feature-description">No pierda ni un pedido cuando no pueda responder.</p></div>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><rect x="4.5" y="3.5" width="15" height="18" rx="2"/><path d="M9 3.5v-1h6v1m-7 6h8m-8 4h8m-8 4h5"/><path d="m7.5 9.5 1 1 1.5-2"/></svg></span>
+                <div class="feature-card-copy"><h3 class="feature-title">Toma datos para el pedido</h3><p class="feature-description">Comprende cómo funciona su negocio.</p></div>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" focusable="false"><path d="M4 19.5h16M5 17V9m5 8V5m5 12v-5m5 5V7"/><path d="m4.5 6.5 5-3 4.5 3 5-2"/><circle cx="19" cy="4.5" r="1"/></svg></span>
+                <div class="feature-card-copy"><h3 class="feature-title">Hace seguimiento</h3><p class="feature-description">Reciba siempre reportes clave de WhatsApp y demás aplicaciones.</p></div>
+            </article>
         </div>
     </section>
 
@@ -602,7 +665,7 @@
                     <label class="form-label" for="lead-name">Nombre</label>
                     <input type="text" id="lead-name" name="name" autocomplete="name" required maxlength="80" placeholder="Ej: Antonella López" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
                     <label class="form-label" for="lead-brand">Restaurante o negocio</label>
-                    <input type="text" id="lead-brand" name="business" autocomplete="organization" required maxlength="100" placeholder="Ej: Nombre del restaurante o negocio" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
+                    <input type="text" id="lead-brand" name="business" autocomplete="organization" required maxlength="100" placeholder="Ej: Sapien Gastro" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red text-xs">
                     <p id="register-note" class="text-[10px] leading-relaxed text-gray-400">Envíe para confirmar.</p>
                     <button type="submit" class="w-full py-3.5 bg-white text-black font-extrabold text-xs uppercase tracking-widest rounded-xl hover:bg-neutral-200 shadow-lg">Abrir WhatsApp</button>
                 </form>
