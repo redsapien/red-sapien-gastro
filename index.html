@@ -306,21 +306,6 @@
             object-fit: contain;
             filter: none;
         }
-        .logo-arrow {
-            flex: 0 0 42px;
-            width: 42px;
-            height: 42px;
-            border: 1px solid rgba(255,255,255,.14);
-            border-radius: 50%;
-            background: rgba(255,255,255,.06);
-            color: #fff;
-            font-size: 28px;
-            line-height: 1;
-            display: grid;
-            place-items: center;
-            transition: background .2s ease, border-color .2s ease;
-        }
-        .logo-arrow:hover { background: rgba(255,60,0,.2); border-color: rgba(255,60,0,.7); }
                 .header-event {
             display: flex; align-items: center; gap: 9px; max-width: min(54vw, 265px);
             padding: 8px 11px; border: 1px solid rgba(255,95,58,.34); border-radius: 15px;
@@ -423,7 +408,6 @@
             .feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         }
         @media (max-width: 520px) {
-            .logo-arrow { flex-basis: 34px; width: 34px; height: 34px; font-size: 23px; }
             .logo-item { flex-basis: min(86vw, 300px); width: min(86vw, 300px); height: min(38vw, 120px); min-height: 92px; }
         }
 
@@ -587,11 +571,9 @@
         .logo-track::before, .logo-track::after { content: ""; flex: 0 0 max(0px, calc(50% - 150px)); height: 1px; pointer-events: none; }
         .logo-item { overflow: hidden; transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease; }
         .logo-item img { transition: transform .24s ease; }
-        .logo-arrow:focus-visible { outline: 2px solid #FF3C00; outline-offset: 3px; }
         @media (hover: hover) and (pointer: fine) {
             .logo-item:hover { transform: translateY(-2px); border-color: #FF3C0085; box-shadow: 0 14px 34px rgba(0,0,0,.28), 0 0 22px #FF3C001c; }
             .logo-item:hover img { transform: scale(1.04); }
-            .logo-arrow:hover { border-color: #FF3C00; }
         }
         @media (pointer: coarse) { .logo-item:active { transform: scale(.99); } }
         @media (prefers-reduced-motion: reduce) {
@@ -709,8 +691,7 @@
     <section id="restaurant-cases" class="relative z-10 py-6 px-4 bg-[#080808] border-t border-b border-white/5 case-section" aria-label="Casos de restaurantes">
         <div class="max-w-6xl mx-auto">
             <div id="logo-slider" class="logo-carousel">
-                <button type="button" class="logo-arrow" aria-label="Ver restaurante anterior" aria-controls="logo-track" onclick="moveLogoSlider(-1)">‹</button>
-                <div id="logo-track" class="logo-track" role="region" aria-label="Casos de restaurantes. Deslice para verlos todos." tabindex="0">
+                <div id="logo-track" class="logo-track" role="region" aria-label="Carrusel automático de restaurantes. Use las flechas del teclado o deslice para navegar." tabindex="0">
                     <div class="logo-item"><img src="assets/Image/Logo-Hijole.webp" alt="Híjole" width="640" height="498" loading="lazy" decoding="async"></div>
                     <div class="logo-item"><img src="assets/Image/Logo-bogotaco.webp" alt="Bogotaco" width="254" height="286" loading="lazy" decoding="async"></div>
                     <div class="logo-item"><img src="assets/Image/Logo-Salchipotato-crop.webp" alt="Salchipotato" width="461" height="399" loading="lazy" decoding="async"></div>
@@ -718,7 +699,6 @@
                     <div class="logo-item"><img src="assets/Image/Logo-Senor-Medrano-crop.webp" alt="Señor Medrano" width="276" height="404" loading="lazy" decoding="async"></div>
                     <div class="logo-item"><img src="assets/Image/Logo-papa.webp" alt="La Papa Prohibida" width="418" height="597" loading="lazy" decoding="async"></div>
                 </div>
-                <button type="button" class="logo-arrow" aria-label="Ver siguiente restaurante" aria-controls="logo-track" onclick="moveLogoSlider(1)">›</button>
             </div>
         </div>
     </section>
