@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Clase 100% gratis de IA para restaurantes. La IA podría ahorrarle hasta un 30% de su tiempo en pedidos, atención y seguimiento por WhatsApp.">
-    <meta name="theme-color" content="#FF3C00">
+    <meta name="description" content="Clase 100% gratis de IA para restaurantes. Agente gratis para siempre, fácil de usar. 20 oct., 16:00 Colombia.">
+    <meta name="theme-color" content="#050505">
     <link rel="canonical" href="https://gastronomia.redsapien.com/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_CO">
     <meta property="og:site_name" content="Red Sapien">
     <meta property="og:url" content="https://gastronomia.redsapien.com/">
     <meta property="og:title" content="Clase 100% gratis de IA para restaurantes | Red Sapien">
-    <meta property="og:description" content="Clase 100% gratis, sin trucos y en vivo. La IA podría ahorrarle hasta un 30% de su tiempo en pedidos y seguimiento por WhatsApp.">
+    <meta property="og:description" content="Clase 100% gratis, sin trucos y en vivo. Agente gratis para siempre. 20 oct., 16:00 Colombia.">
     <meta property="og:image" content="https://gastronomia.redsapien.com/assets/Image/OpenGraph-Gastronomia.jpg?v=2">
     <meta property="og:image:secure_url" content="https://gastronomia.redsapien.com/assets/Image/OpenGraph-Gastronomia.jpg?v=2">
     <meta property="og:image:alt" content="Cristian López presenta una clase 100% gratis de IA para restaurantes">
@@ -21,7 +21,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Clase 100% gratis de IA para restaurantes | Red Sapien">
-    <meta name="twitter:description" content="Clase gratis de IA para restaurantes. La IA podría ahorrar hasta un 30% de su tiempo en pedidos y seguimiento.">
+    <meta name="twitter:description" content="Clase gratis de IA para restaurantes. 20 oct., 16:00 Colombia.">
     <meta name="twitter:image" content="https://gastronomia.redsapien.com/assets/Image/OpenGraph-Gastronomia.jpg?v=2">
     <meta name="twitter:image:alt" content="Cristian López presenta una clase 100% gratis de IA para restaurantes">
     <title>Clase 100% gratis de IA para restaurantes | Red Sapien</title>
@@ -272,7 +272,7 @@
             flex: 1 1 0%;
             width: 0;
             min-width: 0;
-            max-width: 760px;
+            max-width: 940px;
             align-items: center;
             gap: 16px;
             overflow-x: auto;
@@ -371,20 +371,7 @@
             from { opacity: .52; transform: translateX(-.6%) scale(.98); }
             to { opacity: .9; transform: translateX(.6%) scale(1.025); }
         }
-        .logo-controls { display: flex; align-items: center; gap: 8px; }
-        .logo-autoplay-toggle {
-            width: 32px;
-            height: 32px;
-            display: grid;
-            place-items: center;
-            border: 1px solid rgba(255,255,255,.14);
-            border-radius: 50%;
-            background: rgba(255,255,255,.05);
-            color: #e5e7eb;
-            font-size: 12px;
-            font-weight: 800;
-        }
-        @media (hover: hover) and (pointer: fine) { .logo-autoplay-toggle:hover { background: rgba(255,60,0,.18); border-color: rgba(255,60,0,.6); } }
+
         .services-link {
             display: inline-flex;
             align-items: center;
@@ -596,13 +583,15 @@
         }
         @media (max-width: 360px) { .header-event { max-width: calc(100vw - 150px); } }
     </style>
-    <style id="gastronomy-slider-polish">
+    <style id="slider-enhancements">
         .logo-track::before, .logo-track::after { content: ""; flex: 0 0 max(0px, calc(50% - 150px)); height: 1px; pointer-events: none; }
         .logo-item { overflow: hidden; transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease; }
         .logo-item img { transition: transform .24s ease; }
+        .logo-arrow:focus-visible { outline: 2px solid #FF3C00; outline-offset: 3px; }
         @media (hover: hover) and (pointer: fine) {
-            .logo-item:hover { transform: translateY(-2px); border-color: rgba(255,60,0,.52); box-shadow: 0 14px 34px rgba(0,0,0,.28), 0 0 22px rgba(255,60,0,.11); }
+            .logo-item:hover { transform: translateY(-2px); border-color: #FF3C0085; box-shadow: 0 14px 34px rgba(0,0,0,.28), 0 0 22px #FF3C001c; }
             .logo-item:hover img { transform: scale(1.04); }
+            .logo-arrow:hover { border-color: #FF3C00; }
         }
         @media (pointer: coarse) { .logo-item:active { transform: scale(.99); } }
         @media (prefers-reduced-motion: reduce) {
@@ -654,7 +643,7 @@
             </h1>
 
             <p class="hero-description text-gray-300 leading-relaxed mb-6 text-center lg:text-left max-w-lg">
-                La IA podría ahorrarle hasta un <strong class="hero-30">30%</strong> de su tiempo en pedidos, atención y seguimiento por WhatsApp.
+                La IA podría liberar hasta <strong class="hero-30">30%</strong> de su tiempo.
             </p>
 
             <div class="w-full flex justify-center lg:justify-start">
@@ -719,17 +708,15 @@
 
     <section id="restaurant-cases" class="relative z-10 py-6 px-4 bg-[#080808] border-t border-b border-white/5 case-section" aria-label="Casos de restaurantes">
         <div class="max-w-6xl mx-auto">
-            <div class="flex items-center justify-end mb-2">
-                <div class="logo-controls">
-                    <button id="logo-autoplay-toggle" type="button" class="logo-autoplay-toggle" aria-pressed="false" aria-label="Pausar carrusel" title="Pausar carrusel" onclick="toggleLogoAutoplay()">Ⅱ</button>
-                </div>
-            </div>
             <div id="logo-slider" class="logo-carousel">
                 <button type="button" class="logo-arrow" aria-label="Ver restaurante anterior" aria-controls="logo-track" onclick="moveLogoSlider(-1)">‹</button>
                 <div id="logo-track" class="logo-track" role="region" aria-label="Casos de restaurantes. Deslice para verlos todos." tabindex="0">
-                    <div class="logo-item"><img src="assets/Image/Logo-La-plancha-crop.webp" alt="La Plancha · Arepas y Empanadas" width="445" height="258" loading="lazy" decoding="async"></div>
-                    <div class="logo-item"><img src="assets/Image/Logo-papa.webp" alt="La Papa Prohibida" width="418" height="597" loading="lazy" decoding="async"></div>
+                    <div class="logo-item"><img src="assets/Image/Logo-Hijole.webp" alt="Híjole" width="640" height="498" loading="lazy" decoding="async"></div>
+                    <div class="logo-item"><img src="assets/Image/Logo-bogotaco.webp" alt="Bogotaco" width="254" height="286" loading="lazy" decoding="async"></div>
                     <div class="logo-item"><img src="assets/Image/Logo-Salchipotato-crop.webp" alt="Salchipotato" width="461" height="399" loading="lazy" decoding="async"></div>
+                    <div class="logo-item"><img src="assets/Image/Logo-La-plancha-crop.webp" alt="La Plancha" width="445" height="258" loading="lazy" decoding="async"></div>
+                    <div class="logo-item"><img src="assets/Image/Logo-Senor-Medrano-crop.webp" alt="Señor Medrano" width="276" height="404" loading="lazy" decoding="async"></div>
+                    <div class="logo-item"><img src="assets/Image/Logo-papa.webp" alt="La Papa Prohibida" width="418" height="597" loading="lazy" decoding="async"></div>
                 </div>
                 <button type="button" class="logo-arrow" aria-label="Ver siguiente restaurante" aria-controls="logo-track" onclick="moveLogoSlider(1)">›</button>
             </div>
@@ -750,15 +737,15 @@
         <div class="modal-panel relative">
             <button id="modal-close" type="button" onclick="closeModal()" aria-label="Cerrar inscripción" class="modal-close absolute top-4 right-4 z-20">✕</button>
             <div class="modal-content">
-                <h2 id="modal-title" class="modal-title font-display font-bold text-white">Reserve su cupo gratis</h2>
+                <h2 id="modal-title" class="modal-title font-display font-bold text-white">Inscripción</h2>
                 <form id="lead-form" onsubmit="submitForm(event)" class="modal-form">
                     <div class="modal-field">
                         <label class="form-label" for="lead-name">Nombre</label>
-                        <input type="text" id="lead-name" name="name" autocomplete="name" required maxlength="80" placeholder="Ej: Laura Gómez" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red">
+                        <input type="text" id="lead-name" name="name" autocomplete="name" required maxlength="80" placeholder="Ej: Antonella López" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red">
                     </div>
                     <div class="modal-field">
                         <label class="form-label" for="lead-brand">Restaurante</label>
-                        <input type="text" id="lead-brand" name="business" autocomplete="organization" required maxlength="100" placeholder="Ej: restaurante o cafetería" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red">
+                        <input type="text" id="lead-brand" name="business" autocomplete="organization" required maxlength="100" placeholder="Ej: Sapien Gastro" class="w-full bg-neutral-900 border border-white/10 p-3 rounded-xl text-white outline-none focus:border-rs-red">
                     </div>
                     <button type="submit" class="modal-submit">Confirmar por WhatsApp</button>
                 </form>
@@ -804,9 +791,7 @@
         const modal = document.getElementById('action-modal');
         const registrationClosesAt = Date.parse('2026-10-19T00:00:00-05:00');
         const logoTrack = document.getElementById('logo-track');
-        const logoAutoplayToggle = document.getElementById('logo-autoplay-toggle');
         const prefersReducedMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
-        let logoAutoplayEnabled = !prefersReducedMotion.matches;
         let lastModalOpener = null;
         let videoCtaShown = false;
         let videoCtaFrameId = null;
@@ -851,24 +836,35 @@
             catch (_) { logoTrack.scrollLeft = target; }
         }
         function moveLogoSlider(direction) { scrollLogoSlider(direction); }
-        function syncLogoAutoplayButton() {
-            if (!logoAutoplayToggle) return;
-            const paused = !logoAutoplayEnabled;
-            logoAutoplayToggle.textContent = paused ? '▶' : 'Ⅱ';
-            logoAutoplayToggle.setAttribute('aria-pressed', String(paused));
-            logoAutoplayToggle.setAttribute('aria-label', paused ? 'Reanudar carrusel' : 'Pausar carrusel');
-            logoAutoplayToggle.title = paused ? 'Reanudar carrusel' : 'Pausar carrusel';
-        }
-        function toggleLogoAutoplay() {
-            logoAutoplayEnabled = !logoAutoplayEnabled;
-            syncLogoAutoplayButton();
+        if (logoTrack) {
+            logoTrack.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    moveLogoSlider(event.key === 'ArrowRight' ? 1 : -1);
+                }
+            });
         }
         function advanceLogoSlider() {
-            if (!logoAutoplayEnabled || document.hidden) return;
+            if (prefersReducedMotion.matches || document.hidden) return;
             scrollLogoSlider(1);
         }
-        syncLogoAutoplayButton();
-        window.setInterval(advanceLogoSlider, 2000);
+        let logoAutoplayTimer = null;
+        function syncLogoAutoplayForMotion() {
+            if (prefersReducedMotion.matches) {
+                if (logoAutoplayTimer !== null) {
+                    window.clearInterval(logoAutoplayTimer);
+                    logoAutoplayTimer = null;
+                }
+            } else if (logoAutoplayTimer === null) {
+                logoAutoplayTimer = window.setInterval(advanceLogoSlider, 2000);
+            }
+        }
+        syncLogoAutoplayForMotion();
+        if (typeof prefersReducedMotion.addEventListener === 'function') {
+            prefersReducedMotion.addEventListener('change', syncLogoAutoplayForMotion);
+        } else if (typeof prefersReducedMotion.addListener === 'function') {
+            prefersReducedMotion.addListener(syncLogoAutoplayForMotion);
+        }
 
         function hideVideoOverlay() {
             if (!overlay) return;
