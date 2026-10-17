@@ -228,8 +228,7 @@
             padding: 0;
             border: 0;
             color: inherit;
-            background: rgba(0, 0, 0, 0.62);
-            backdrop-filter: blur(3px);
+            background: rgba(0, 0, 0, 0.04);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -679,7 +678,7 @@
         </div>
 
         <!-- COLUMNA DERECHA (PC) / ARRIBA (MÓVIL): VÍDEO EN MARCO MÓVIL -->
-        <div class="video-column relative order-1 lg:order-2 cinema-reveal cinema-reveal--delay">
+        <div id="video-clase" class="video-column relative order-1 lg:order-2 cinema-reveal cinema-reveal--delay">
             <div id="mobile-container" class="mobile-frame-compact">
                 <div class="mobile-notch-compact"></div>
                 <div class="mobile-screen-compact">
@@ -692,7 +691,7 @@
                     </button>
                     <p id="video-error" class="video-error" role="status">Video no disponible.</p>
 
-                    <video id="gastronomy-video" class="w-full h-full object-cover" width="320" height="576" controls loop playsinline preload="metadata" poster="Video/Gastronomia-poster.jpg" aria-label="Video de Red Sapien para restaurantes">
+                    <video id="gastronomy-video" class="w-full h-full object-cover" width="320" height="576" controls loop playsinline preload="none" poster="Video/Gastronomia-poster.jpg" aria-label="Video de Red Sapien para restaurantes">
                         <source src="Video/Gastronomia.mp4" type="video/mp4">
                     </video>
                 </div>
