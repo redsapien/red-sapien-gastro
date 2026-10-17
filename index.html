@@ -257,6 +257,10 @@
             cursor: pointer;
             transition: opacity 0.25s ease;
         }
+        /* Keep the full-screen button clickable while moving only its play icon below the face. */
+        .video-overlay-btn > span:first-child {
+            transform: translateY(clamp(56px, 8vh, 72px));
+        }
         .video-overlay-btn:focus-visible,
         button:focus-visible,
         a:focus-visible {
